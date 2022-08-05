@@ -51,6 +51,23 @@ header{
 .to-do-button:hover{
     background-color: #89cff0;
 }
+
 .to-do-button:active{
-    transform: translateY(4px);
+    transform: translateY(2px);
+}
+
+.todo-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.todo-list{
+    list-style: none;
+}
+.todo{
+    margin: 0.5rem;
+    font-size: 1.2rem;
+    color:black;
+    background: white;
 }
