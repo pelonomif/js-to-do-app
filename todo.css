@@ -5,14 +5,14 @@
 }
 
 body{
-    background-image: linear-gradient(120deg, #eec0c6, #e58c8a);
+    background-image: linear-gradient(120deg, #fc575e, #90d5ec);
     background-repeat: no-repeat;
     min-height: 100vh;
     color: black;
     font-family: Georgia, serif;
 }
 
-header{
+header, form{
     font-size: 1.5rem;
     display: flex;
     justify-content: center;
@@ -21,10 +21,10 @@ header{
     min-height:20vh;
 }
 
-#to-do{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+form input, form button{
+    padding: 0.5rem;
+    border: none;
+    font-size: 1rem;     
 }
 
 .to-do-input{
@@ -41,7 +41,8 @@ header{
     font-size: 1rem;
     border:none;
     border-radius: 0%;
-    background-color: #afdceb;
+    background: white;
+    color:#89cff0 ;
     cursor: pointer;
     text-align: center;
     
@@ -49,7 +50,8 @@ header{
 }
 
 .to-do-button:hover{
-    background-color: #89cff0;
+    color: white;
+    background: #89cff0;
 }
 
 .to-do-button:active{
@@ -64,10 +66,51 @@ header{
 
 .todo-list{
     list-style: none;
+    min-width: 20%;
+    
 }
 .todo{
-    margin: 0.5rem;
+    margin: 2rem;
     font-size: 1.2rem;
     color:black;
     background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.todo li{
+    flex: 1rem;
+    padding: 1rem;
+}
+.complete-btn, .editButton, .trashButton {
+    border: none;
+    font-size: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+}
+.complete-btn:hover{
+    color:white;
+    background: #cbc3e3;
+   
+}
+.editButton:hover{ 
+    color: white;
+    background:  #ff92a5;
+}                     
+                     
+.trashButton:hover{ 
+    color: white;
+    background:  #89cff0;
+}                     
+
+.complete-btn:active{
+    transform: translateY(2px);
+}
+
+.editButton:active{
+    transform: translateY(2px);
+}
+
+.trashButton:active{
+    transform: translateY(2px);
 }
