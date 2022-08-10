@@ -70,7 +70,7 @@ form input, form button{
     
 }
 .todo{
-    margin: 2rem;
+    margin: 0.5rem;
     font-size: 1.2rem;
     color:black;
     background: white;
@@ -113,4 +113,7 @@ form input, form button{
 
 .trashButton:active{
     transform: translateY(2px);
+}
+.fa-check, .fa-pen-to-square, .fa-trash{
+    pointer-events: none;
 }

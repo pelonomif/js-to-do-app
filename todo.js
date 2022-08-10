@@ -37,7 +37,19 @@ function addToDo(event) {
         //append to list in HTML
         todoList.appendChild(todoDiv);
         todoInput.value= "";
+        
+}
 
+todoList.addEventListener("click", deleteTask);
+
+function deleteTask(e){
+
+    const item = e.target;
+
+    if (item.classList[0] === "trashButton"){
+        const todo =  item.parentElement;
+            todo.remove();
+}
 }
 
 
