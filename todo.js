@@ -25,7 +25,7 @@ todoButton.addEventListener("click", addToDo);
                 completedButton.classList.add ("complete-btn");
                     todoDiv.appendChild (completedButton);
 
-            const editButton = document.createElement ("button");
+        const editButton = document.createElement ("button");
             editButton.innerHTML= '<i class="fa-solid fa-pen-to-square"></i>';
                 editButton.classList.add ("editButton");
                     todoDiv.appendChild (editButton);
@@ -39,7 +39,7 @@ todoButton.addEventListener("click", addToDo);
             todoInput.value= "";
         
 }
-    //to delete the todo item I added an eventListener
+    //Added functionality to delete and completed buttons
 todoList.addEventListener("click", deleteSave);
 
     function deleteSave(e){
@@ -53,16 +53,16 @@ todoList.addEventListener("click", deleteSave);
                 }
                 // Added a toggle to be used in css to cross out the completed items
                 
-            if (item.classList[0] === "complete-btn"){
+            else if (item.classList[0] === "complete-btn"){
                     const todo = item.parentElement;
                     todo.classList.toggle("completed");
                 }
+            
+            
+
 
 }
-
-
-
-    
+   
 
    
 

@@ -80,7 +80,7 @@ form input, form button{
 }
 .todo li{
     flex: 1rem;
-    padding: 1rem;
+    padding: 0.5rem;
 }
 .complete-btn, .editButton, .trashButton {
     border: none;
