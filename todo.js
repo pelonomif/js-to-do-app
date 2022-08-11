@@ -50,17 +50,42 @@ todoList.addEventListener("click", deleteSave);
             else if (item.classList[0] === "complete-btn"){
                     const todo = item.parentElement;
                     todo.classList.toggle("completed");
+                    filterTodo();
                 }
 
 }
 filterOption.addEventListener("click", filterTodo);
 
-    function filterTodo(e){
-        e.preventDefault();
-        
+    function filterTodo(e) {
         const todos = todoList.childNodes;
-        console.log(todos);
+        todos.forEach(function (todo) { 
+            const mStyle = todo.style;  
+            if(mStyle != undefined && mStyle != null){
+                switch (e.target.value) {
+                    case "all":
+                        mStyle.display = "flex";
+                        break;
+                    case "completed":
+                        if (todo.classList.contains('completed')) {
+                            mStyle.display = 'flex';
+                        } else {
+                            mStyle.display = "none";
+                        }
+                        break;
+                    case "incomplete":
+                        if (todo.classList.contains('completed')){
+                            mStyle.display = 'none';
+                        }
+                        else{
+                            mStyle.display = "flex";
+                        }
+                        break;
+                }
+            }
+        })
     }
+            
+    
 
 
    
