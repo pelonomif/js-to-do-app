@@ -24,7 +24,8 @@ header, form{
 form input, form button{
     padding: 0.5rem;
     border: none;
-    font-size: 1rem;     
+    font-size: 1rem;  
+     
 }
 
 .to-do-input{
@@ -33,6 +34,7 @@ form input, form button{
     border:none;
     border-radius: 0%;
     background-color: white;
+    
 
 }
 
@@ -113,4 +115,37 @@ form input, form button{
 .completed{
     text-decoration: line-through;
     opacity: 0.5rem;
+}
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+}
+.select{
+    margin: 0.5rem;
+    position: relative;
+    overflow:hidden;
+}
+select{
+    color:black;
+    width: 10rem;
+    padding:0.5rem;
+    cursor: pointer;
+}
+.select::after{
+    content: "\25BC";
+    position: absolute;
+    background: #f7cac9;
+    top: 0; 
+    right: 0;
+    padding: 0.2rem;
+    pointer-events: none;
+    margin-top: 0.15rem;
+
+}
+.select:hover::after{
+    background: white;
+    color: #f7cac9;
 }
