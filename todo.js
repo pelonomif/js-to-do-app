@@ -2,7 +2,6 @@
 const todoInput = document.querySelector(".to-do-input");
 const todoButton = document.querySelector(".to-do-button");
 const todoList = document.querySelector(".todo-list");
-const todo = document.querySelector ("to-do");  
 
 
 
@@ -24,12 +23,7 @@ todoButton.addEventListener("click", addToDo);
             completedButton.innerHTML = '<i class="fas fa-check"></i>';
                 completedButton.classList.add ("complete-btn");
                     todoDiv.appendChild (completedButton);
-
-        const editButton = document.createElement ("button");
-            editButton.innerHTML= '<i class="fa-solid fa-pen-to-square"></i>';
-                editButton.classList.add ("editButton");
-                    todoDiv.appendChild (editButton);
-                
+               
         const trashButton = document.createElement ("button");
             trashButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
                 trashButton.classList.add ("trashButton");
@@ -57,12 +51,9 @@ todoList.addEventListener("click", deleteSave);
                     const todo = item.parentElement;
                     todo.classList.toggle("completed");
                 }
-            
-            
-
 
 }
-   
+
 
    
 
