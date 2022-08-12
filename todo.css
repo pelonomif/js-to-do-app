@@ -72,10 +72,10 @@ form input, form button{
     
 }
 .todo{
-    margin: 0.5rem;
+    margin: 0.2rem;
     font-size: 1rem;
     color:black;
-    background: white;
+    background: rgb(252, 249, 249);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -84,7 +84,7 @@ form input, form button{
     flex: 1rem;
     padding: 0.5rem;
 }
-.complete-btn, .editButton, .trashButton {
+.complete-btn,.trashButton {
     border: none;
     font-size: 1rem;
     padding: 1rem;
@@ -94,8 +94,7 @@ form input, form button{
     color:white;
     background: #cbc3e3;
    
-}
-                     
+}               
                      
 .trashButton:hover{ 
     color: white;
@@ -114,7 +113,7 @@ form input, form button{
 }
 .completed{
     text-decoration: line-through;
-    opacity: 0.5rem;
+    opacity: 0.2rem;
 }
 select{
     -webkit-appearance: none;
