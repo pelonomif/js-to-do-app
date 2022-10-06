@@ -6,44 +6,61 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>To Do List</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">  
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="/todo.css">
-
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/todo.css">
     </head>
+    
     <body>
-           <header>
-            <h1> MY TO DO LIST</h1>
-           </header>    
-           
-           <main>
-                <section>
-                    
-                    <form id = "to-do">
-                        <input type = "text" class="to-do-input"  required />
-                        <button type= "button" class=" to-do-button"><i class="fa-solid fa-square-plus"></i></button >
-                    <div class="select">
-                        <select name="todos" class=" filter-todo">
-                            <option value = "All">All</option>
-                            <option value = "completed">Completed</option>
-                            <option value = "incomplete">Incomplete</option>
-                        </select>
+        <main>
+            <div class="app">
+                <h4>TODO APP</h4>
+                <!---Use this div to open the modal-->
+                <div id="addNew" data-bs-toggle="modal" data-bs-target="#form">
+                    <span> Add New Task</span>
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                </div>
 
+                <h5 class="text-center">Tasks</h5>
+                <div id="tasks"></div>  
+                <!-- Bootstrap Modal -->
+                <form class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Add New Task</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+
+                            <div class="modal-body">
+                                <p>Task Title</p>
+                                <input type="text" class="form-control" name="" id="textInput"/>
+                                <div id="msg"></div>
+                                <br/>
+
+                                <p>Due Date</p>
+                                <input type="date" class="form-control" name="" id="dateInput"/>
+                                <br/>
+                                
+                                <p> Description</p>
+                                <textarea name="" class="form-control" cols ="30" rows="5"></textarea>
+                            </div>
+
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
                     </div>
-                    </form>
-                    
-                    <div class= "todo-container">                       
-                        <ul class="todo-list"> 
-                            
-                        </ul>
+                </form>
+            </div>
 
-                    </div>
-                </section>
-
-           </main>
-           <script type="text/javascript" src="/todo.js"></script>
+            
+         </main>
     </body>
-</html>
 
 
 
