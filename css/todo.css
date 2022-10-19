@@ -11,6 +11,13 @@ body {
   
 }
 
+h2{
+    text-align: center;
+    color: #6d6875;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .app {
     background-color: #fff;
     width: 405px;

@@ -19,8 +19,23 @@ let formValidation = () => {
     else {
       console.log("successs");
       msg.innerHTML = "";
+
+      acceptData();
     }
   };
 
-    
+//collect data and use local storage
+let data = [];
+
+let acceptData = () => {
+  data.push ({
+    text: userInput.value,
+  });
+
+  localStorage.setItem("data", JSON.stringify(data));
+  console.log(data);
+
+}
+
+
     
