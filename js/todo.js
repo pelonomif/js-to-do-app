@@ -24,6 +24,11 @@ let formValidation = () => {
     }
     
   };
+  let editId;
+  let isEditedTask = false;
+
+  //getting local storage todo list
+  let todo = JSON.parse(localStorage.getItem("todo-list"));
 
   //using template literals to collect data from local storage and adding it
 function showTodos(){
@@ -40,7 +45,7 @@ function showTodos(){
                   <div class="settings">
                       <i onclick="showMenu(this)" class="fa fa-ellipsis-h"></i>
                       <ul class="task-menu">
-                          <li><i class="fa fa-pencil">Edit</i></li>
+                          <li onclick= "editTask(${id}, '${todo.text}')"><i class="fa fa-pencil">Edit</i></li>
                           <li onclick= "deleteTask(${id})"><i class="fa fa-trash">Delete</i></li>
                       </ul>
                   </div>
@@ -51,6 +56,7 @@ function showTodos(){
   resetForm();
   showMenu();
   deleteTask();
+  editTask();
 
   
 }
@@ -71,11 +77,16 @@ function showMenu(selectedTask) {
     } 
    })
 }
- 
+
+function editTask (taskId, taskName) {
+  editId = taskId;
+  userInput.value = taskName;
+}
+
 function deleteTask (deleteId){
   //removing selected task from todos array
   todos.splice(deleteId, 1);
-  localStorage.setItem("todos", JSON.stringify(todos));
+  localStorage.setItem("todo-list", JSON.stringify(todos));
   showTodos();
 }
 
@@ -93,7 +104,7 @@ function updateStatus(selectedTask) {
     //updating status of selected task to pending
     todos[selectedTask.id].status = "pending"
   }
-  localStorage.setItem("todos", JSON.stringify(todos));
+  localStorage.setItem("todo-list", JSON.stringify(todos));
 }
 
 
@@ -107,7 +118,7 @@ let acceptData = () => {
     status: "pending"
   });
 
-  localStorage.setItem("todos", JSON.stringify(todos));
+  localStorage.setItem("todo-list", JSON.stringify(todos));
   console.log(todos);
 
   showTodos();
