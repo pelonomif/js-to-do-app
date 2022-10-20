@@ -62,6 +62,12 @@ function showMenu(selectedTask) {
   //getting task menu div
   let taskMenu = selectedTask.parentElement.lastElementChild;
   taskMenu.classList.add("show");
+  document.addEventListener("click", e => {
+    //removing show class from the task menu on document when clicked
+    if (e.target.tagName != "I" || e.target != selectedTask){
+          taskMenu.classList.remove("show");
+    } 
+   })
 }
  
 function updateStatus(selectedTask) {
