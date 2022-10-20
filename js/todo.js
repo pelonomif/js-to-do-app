@@ -26,12 +26,13 @@ let formValidation = () => {
   };
 
   //using template literals to collect data from local storage and adding it
-function showData(){
+function showTodos(){
   let li = "";
-  data.forEach((todo, id) => {
+  if (todos){
+  todos.forEach((todo, id) => {
     li += `  <li class="task">
                   <label for="${id}">
-                      <input type="checkbox" id="${id}">
+                      <input onclick= "updateStatus(this)" type="checkbox" id="${id}">
                       <p>${todo.text}</p>
                   </label>
                   <div class="settings">
@@ -43,24 +44,46 @@ function showData(){
                   </div>
               </li>`;
   });
-  taskBox.innerHTML = li;
 }
+  taskBox.innerHTML = li;
+  resetForm()
+  
+}
+
+function resetForm() {
+  userInput.value = "";
+
+}
+  
+function updateStatus(selectedTask) {
+  //getting paragraph that contains the task name
+  let taskName = selectedTask.parentElement.lastElementChild;
+  if (selectedTask.checked){
+    taskName.classList.add("checked");
+    todos[selectedTask.id] = task
+
+  } else {
+    taskName.classList.remove("checked"); 
+  }
+}
+
 
 
 //collect data and save it local storage
-let data = [];
+let todos = [];
 
 let acceptData = () => {
-  data.push ({
+  todos.push ({
     text: userInput.value,
+    status: "pending"
   });
 
-  localStorage.setItem("data", JSON.stringify(data));
-  console.log(data);
+  localStorage.setItem("todos", JSON.stringify(todos));
+  console.log(todos);
 
-  showData();
+  showTodos();
 
 }
 
-
+//adding function to delete data
     
