@@ -20,9 +20,9 @@ let formValidation = () => {
     else {
       console.log("successs");
       msg.innerHTML = "";
-
       acceptData();
     }
+    
   };
 
   //using template literals to collect data from local storage and adding it
@@ -49,6 +49,7 @@ function showTodos(){
 }
   taskBox.innerHTML = li;
   resetForm()
+  showMenu();
   
 }
 
@@ -58,10 +59,11 @@ function resetForm() {
 }
   
 function showMenu(selectedTask) {
-  console.log(selectedTask)
+  //getting task menu div
+  let taskMenu = selectedTask.parentElement.lastElementChild;
+  taskMenu.classList.add("show");
 }
-  showMenu();  
-
+ 
 function updateStatus(selectedTask) {
   //getting paragraph that contains the task name
   let taskName = selectedTask.parentElement.lastElementChild;
