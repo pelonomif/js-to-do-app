@@ -41,15 +41,17 @@ function showTodos(){
                       <i onclick="showMenu(this)" class="fa fa-ellipsis-h"></i>
                       <ul class="task-menu">
                           <li><i class="fa fa-pencil">Edit</i></li>
-                          <li><i class="fa fa-trash">Delete</i></li>
+                          <li onclick= "deleteTask(${id})"><i class="fa fa-trash">Delete</i></li>
                       </ul>
                   </div>
               </li>`;
   });
 }
   taskBox.innerHTML = li;
-  resetForm()
+  resetForm();
   showMenu();
+  deleteTask();
+
   
 }
 
@@ -57,7 +59,7 @@ function resetForm() {
   userInput.value = "";
 
 }
-  
+
 function showMenu(selectedTask) {
   //getting task menu div
   let taskMenu = selectedTask.parentElement.lastElementChild;
@@ -70,6 +72,14 @@ function showMenu(selectedTask) {
    })
 }
  
+function deleteTask (deleteId){
+  //removing selected task from todos array
+  todos.splice(deleteId, 1);
+  localStorage.setItem("todos", JSON.stringify(todos));
+  showTodos();
+}
+
+  
 function updateStatus(selectedTask) {
   //getting paragraph that contains the task name
   let taskName = selectedTask.parentElement.lastElementChild;
@@ -104,5 +114,5 @@ let acceptData = () => {
 
 }
 
-//adding function to delete data
+
     
