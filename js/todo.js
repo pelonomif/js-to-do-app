@@ -29,14 +29,16 @@ let formValidation = () => {
 function showTodos(){
   let li = "";
   if (todos){
-  todos.forEach((todo, id) => {
+  todos.forEach((todo, id) => { 
+    //if todo status is conpleted, set the isCompleted value to checked
+    let isCompleted = todo.status == "completed" ? "checked" : "";
     li += `  <li class="task">
                   <label for="${id}">
-                      <input onclick= "updateStatus(this)" type="checkbox" id="${id}">
-                      <p>${todo.text}</p>
+                      <input onclick= "updateStatus(this)" type="checkbox" id="${id}" ${isCompleted}>
+                      <p class = "${isCompleted}">${todo.text}</p>
                   </label>
                   <div class="settings">
-                      <i class="fa fa-ellipsis-h"></i>
+                      <i onclick="showMenu(this)" class="fa fa-ellipsis-h"></i>
                       <ul class="task-menu">
                           <li><i class="fa fa-pencil">Edit</i></li>
                           <li><i class="fa fa-trash">Delete</i></li>
@@ -55,16 +57,25 @@ function resetForm() {
 
 }
   
+function showMenu(selectedTask) {
+  console.log(selectedTask)
+}
+  showMenu();  
+
 function updateStatus(selectedTask) {
   //getting paragraph that contains the task name
   let taskName = selectedTask.parentElement.lastElementChild;
   if (selectedTask.checked){
     taskName.classList.add("checked");
-    todos[selectedTask.id] = task
+    //updating status of selected task to completed
+    todos[selectedTask.id].status = "completed"
 
   } else {
     taskName.classList.remove("checked"); 
+    //updating status of selected task to pending
+    todos[selectedTask.id].status = "pending"
   }
+  localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 

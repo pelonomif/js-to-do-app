@@ -40,7 +40,7 @@ h2{
 #add{
     position: absolute;
     top: 0;
-    border-radius: 5px;
+    border-radius: 4px;
     right: 4px;
     z-index: 2;
     border: none;
@@ -149,9 +149,9 @@ h2{
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
 }
 
-.settings:hover .task-menu{
+/*.settings:hover .task-menu{
     transform: scale(1);
-}
+}*/
 
 .task-menu li{
     height: 25px;
