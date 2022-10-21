@@ -2,6 +2,7 @@
 let form= document.getElementById('form');
 let userInput = document.getElementById('userInput');
 let msg = document.getElementById('msg');
+clearAll = document.querySelector(".clear-btn"),
 filters = document.querySelectorAll(".filters span"),
 taskBox =  document.querySelector(".task-box");
 
@@ -71,12 +72,12 @@ function showTodos(filter){
 }
 
   //if li isn't empty, insert this value inside taskbox else insert span
-  taskBox.innerHTML = li || `<span>You don't have any task here</span>`; 
+  taskBox.innerHTML = li || `<span>Empty</span>`; 
   resetForm();
   showMenu();
   deleteTask();
   editTask();
-  
+  showTodos("all")
 }
 
 
@@ -103,12 +104,19 @@ function editTask (taskId, taskName) {
 }
 
 function deleteTask (deleteId){
-  //removing selected task from todos array
+  //removing all items from todos array
   todos.splice(deleteId, 1);
   localStorage.setItem("todo-list", JSON.stringify(todos));
-  showTodos();
+  showTodos("all");
 }
 
+clearAll.addEventListener("click", () => {
+  todos.splice(0, todos.length);
+  localStorage.setItem("todo-list", JSON.stringify(todos));
+  showTodos("all");
+  
+
+});
   
 function updateStatus(selectedTask) {
   //getting paragraph that contains the task name
@@ -140,7 +148,7 @@ let acceptData = () => {
   localStorage.setItem("todo-list", JSON.stringify(todos));
   console.log(todos);
 
-  showTodos();
+  showTodos("all");
 
 }
 
