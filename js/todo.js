@@ -2,7 +2,9 @@
 let form= document.getElementById('form');
 let userInput = document.getElementById('userInput');
 let msg = document.getElementById('msg');
-taskBox =  document.querySelector(".task-box")
+filters = document.querySelectorAll(".filters span"),
+taskBox =  document.querySelector(".task-box");
+
 
 //Validating the form
 form.addEventListener("submit", (e) =>{
@@ -30,8 +32,19 @@ let formValidation = () => {
   //getting local storage todo list
   let todo = JSON.parse(localStorage.getItem("todo-list"));
 
+  //separting the filters on click
+  function forEach(){
+    filters.forEach(btn =>{
+      btn.addEventListener("click", () =>{
+        document.querySelector("span.active").classList.remove("active");
+        btn.classList.add("active");
+        showTodos(btn.id);
+      })
+    });
+};
+  forEach();
   //using template literals to collect data from local storage and adding it
-function showTodos(){
+function showTodos(filter){
   let li = "";
   if (todos){
   todos.forEach((todo, id) => { 
