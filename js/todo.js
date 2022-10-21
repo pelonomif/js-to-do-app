@@ -50,7 +50,8 @@ function showTodos(filter){
   todos.forEach((todo, id) => { 
     //if todo status is conpleted, set the isCompleted value to checked
     let isCompleted = todo.status == "completed" ? "checked" : "";
-    li += `  <li class="task">
+    if(filter == todo.status || filter == "all"){
+        li += `  <li class="task">
                   <label for="${id}">
                       <input onclick= "updateStatus(this)" type="checkbox" id="${id}" ${isCompleted}>
                       <p class = "${isCompleted}">${todo.text}</p>
@@ -63,16 +64,21 @@ function showTodos(filter){
                       </ul>
                   </div>
               </li>`;
+
+    }
+  
   });
 }
-  taskBox.innerHTML = li;
+
+  //if li isn't empty, insert this value inside taskbox else insert span
+  taskBox.innerHTML = li || `<span>You don't have any task here</span>`; 
   resetForm();
   showMenu();
   deleteTask();
   editTask();
-
   
 }
+
 
 function resetForm() {
   userInput.value = "";
